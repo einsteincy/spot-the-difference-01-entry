@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twin Lanterns — Spot the Difference</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-screen="menu">
+<header class="hud">
+  <div class="hud-title">🏮 Twin Lanterns</div>
+  <div class="hud-item" id="hud-level">Level 1 · Lantern Street</div>
+  <div class="hud-item" id="hud-score">Skor 0</div>
+  <div class="hud-item timer" id="hud-timer">2:00</div>
+  <div class="hud-item found" id="hud-found">0/7 — 7 tersisa</div>
+  <button class="hud-btn" id="mute-btn" type="button">🔊 Suara hidup</button>
+</header>
+
+<main class="stage" id="stage">
+  <section class="panels">
+    <figure class="panel">
+      <figcaption>Panel kiri — gambar asli</figcaption>
+      <canvas id="panel-left" width="616" height="500"></canvas>
+    </figure>
+    <figure class="panel">
+      <figcaption>Panel kanan — cari 7 perbedaannya</figcaption>
+      <canvas id="panel-right" width="616" height="500"></canvas>
+    </figure>
+  </section>
+
+  <div class="toolbar">
+    <button id="hint-btn" type="button">💡 Petunjuk (−50)</button>
+    <button id="restart-btn" type="button">↻ Ulangi level (R)</button>
+    <button id="menu-btn" type="button">☰ Menu (Esc)</button>
+    <span class="keys">Panah = gerakkan bidikan · Enter = tandai · H = petunjuk · M = suara</span>
+  </div>
+
+  <!-- Menu -->
+  <div class="overlay" id="screen-menu">
+    <div class="card">
+      <h1>🏮 Twin Lanterns</h1>
+      <p class="tagline">Cari 7 perbedaan di setiap gambar — sebelum waktunya habis!</p>
+      <p class="best" id="menu-best">Belum ada skor — mainkan level pertamamu!</p>
+      <button class="big-btn" id="play-btn" type="button">▶ Mulai bermain</button>
+      <h2>Pilih level</h2>
+      <div class="level-select" id="level-select"></div>
+      <h2>Cara main</h2>
+      <ul class="howto">
+        <li><b>Klik</b> gambar kiri atau kanan pada perbedaan yang kamu temukan — cincin emas menandainya di kedua panel. Benar: <b>+100 poin</b>, salah: <b>−25 poin</b>.</li>
+        <li><b>Keyboard:</b> panah menggerakkan bidikan, Enter menandai, H petunjuk (−50), R ulangi level, M suara, Esc menu.</li>
+        <li>Setiap level: <b>120 detik</b>, 7 perbedaan. Selesaikan 4 level untuk menang!</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Level complete -->
+  <div class="overlay hidden" id="screen-level">
+    <div class="card">
+      <h1 id="level-title">Level selesai!</h1>
+      <p class="detail" id="level-detail"></p>
+      <button class="big-btn" id="next-btn" type="button">Level berikutnya (N) →</button>
+      <button class="ghost-btn" id="menu-btn-2" type="button">Kembali ke menu</button>
+    </div>
+  </div>
+
+  <!-- Victory -->
+  <div class="overlay hidden" id="screen-victory">
+    <div class="card">
+      <h1>🎉 Kamu menang!</h1>
+      <p class="tagline">Semua 28 perbedaan ditemukan — mata elang!</p>
+      <p class="big-score">Skor total: <span id="victory-score">0</span></p>
+      <p class="detail" id="victory-detail"></p>
+      <button class="big-btn" id="again-btn" type="button">↻ Main lagi</button>
+    </div>
+  </div>
+
+  <!-- Time up -->
+  <div class="overlay hidden" id="screen-timeup">
+    <div class="card">
+      <h1>⏰ Waktu habis!</h1>
+      <p class="detail" id="timeup-detail"></p>
+      <button class="big-btn" id="retry-btn" type="button">↻ Coba lagi (R)</button>
+      <button class="ghost-btn" id="menu-btn-3" type="button">Kembali ke menu</button>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  Twin Lanterns — a spot-the-difference game. All art is drawn in code; all sounds are synthesized.
+</footer>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
